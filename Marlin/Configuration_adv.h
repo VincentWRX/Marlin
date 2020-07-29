@@ -1834,19 +1834,12 @@
 
 // @section motion
 
-<<<<<<< HEAD
-// The number of linear motions that can be in the plan at any give time.
-// THE BLOCK_BUFFER_SIZE NEEDS TO BE A POWER OF 2 (e.g. 8, 16, 32) because shifts and ors are used to do the ring-buffering.
-#if ENABLED(SDSUPPORT)
-  #define BLOCK_BUFFER_SIZE 32 // SD,LCD,Buttons take more memory, block buffer needs to be smaller
-=======
 // The number of linear moves that can be in the planner at once.
 // The value of BLOCK_BUFFER_SIZE must be a power of 2 (e.g. 8, 16, 32)
 #if BOTH(SDSUPPORT, DIRECT_STEPPING)
   #define BLOCK_BUFFER_SIZE  8
 #elif ENABLED(SDSUPPORT)
-  #define BLOCK_BUFFER_SIZE 16
->>>>>>> upstream/2.0.x
+  #define BLOCK_BUFFER_SIZE 32
 #else
   #define BLOCK_BUFFER_SIZE 16
 #endif
@@ -1891,13 +1884,6 @@
   //#define SERIAL_STATS_DROPPED_RX
 #endif
 
-<<<<<<< HEAD
-// Enable an emergency-command parser to intercept certain commands as they
-// enter the serial receive buffer, so they cannot be blocked.
-// Currently handles M108, M112, M410
-// Does not work on boards using AT90USB (USBCON) processors!
-#define EMERGENCY_PARSER
-=======
 /**
  * Emergency Command Parser
  *
@@ -1907,7 +1893,6 @@
  * NOTE: Not yet implemented for all platforms.
  */
 //#define EMERGENCY_PARSER
->>>>>>> upstream/2.0.x
 
 // Bad Serial-connections can miss a received command by sending an 'ok'
 // Therefore some clients abort after 30 seconds in a timeout.
